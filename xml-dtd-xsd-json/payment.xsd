@@ -1,0 +1,61 @@
+<?xml version="1.0"?>  
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+targetNamespace="http://www.payment.com"
+xmlns="http://www.payment.com"
+elementFormDefault="qualified">
+<xs:element name="Payment">  
+  <xs:complexType>
+    <xs:sequence>
+        <xs:element name="User"  minOccurs="0" maxOccurs="unbounded">
+            <xs:complexType>
+                <xs:all>
+                  <xs:element name="CardNumber">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:integer">
+                        <xs:pattern value="[0-9]{16}"></xs:pattern>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="CardHolderName">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:pattern value="[a-zA-Z .]{4,}"></xs:pattern>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ExpirationMonth">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:integer">
+                        <xs:pattern value="[0-9]{1,2}"></xs:pattern>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ExpirationYear">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:integer">
+                        <xs:pattern value="[0-9]{4}"></xs:pattern>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="CVV">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:integer">
+                        <xs:pattern value="[0-9]{3}"></xs:pattern>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Amount">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:integer">
+                        <xs:pattern value="[1-9][0-9]*"></xs:pattern>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:all>
+                <xs:attribute name="id" type="xs:ID"/>
+            </xs:complexType>
+        </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>   
+</xs:schema> 

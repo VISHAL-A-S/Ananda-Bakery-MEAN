@@ -1,0 +1,33 @@
+<?xml version="1.0"?>  
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+targetNamespace="http://www.index.com"
+xmlns="http://www.index.com"
+elementFormDefault="qualified">
+<xs:element name="Login">  
+  <xs:complexType>
+    <xs:sequence>
+        <xs:element name="User"  minOccurs="0" maxOccurs="unbounded">
+            <xs:complexType>
+                <xs:all>
+                  <xs:element name="Email">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:pattern value="[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+"></xs:pattern>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Password">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:pattern value="[A-Za-z0-9#?!@$%^*-].{6,}"></xs:pattern>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:all>
+                <xs:attribute name="id" type="xs:ID"/>
+            </xs:complexType>
+        </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>   
+</xs:schema> 

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPLICIT DTD -->
+<!DOCTYPE Login [
+<!ELEMENT Login (User+)>
+<!ELEMENT User (Email,Password)>
+<!ELEMENT Email (#PCDATA)>
+<!ELEMENT Password (#PCDATA)>
+<!ATTLIST User id ID (#REQUIRED)>
+]>
+<!-- 
+EXPLICIT DTD
+<!DOCTYPE Login SYSTEM "index.dtd"> 
+-->
+<Login xmlns="http://www.index.com"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.index.com index.xsd">
+    <User id="vishal872002">
+        <Email>vishal872002@gmail.com</Email>
+        <Password>Password123</Password>
+    </User>
+    <User id="vishal123">
+        <Email>vishal123@gmail.com</Email>
+        <Password>Password012</Password>
+    </User>
+    <User id="vishal12345">
+        <Email>vishal12345@gmail.com</Email>
+        <Password>PassWord</Password>
+    </User>
+</Login>

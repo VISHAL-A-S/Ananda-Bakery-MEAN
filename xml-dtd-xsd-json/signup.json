@@ -1,0 +1,27 @@
+{
+    "SignUp": {
+      "User": [
+        {
+          "Name": "Vishal",
+          "Email": "vishal872002@gmail.com",
+          "Phone": 9123595596,
+          "Password": "Password123",
+          "ConfirmPassword": "Password123"
+        },
+        {
+          "Name": "Vishaal",
+          "Email": "vishal123@gmail.com",
+          "Phone": 9125555596,
+          "Password": "Password012",
+          "ConfirmPassword": "Password012"
+        },
+        {
+          "Name": "A S Vishal",
+          "Email": "vishal12345@gmail.com",
+          "Phone": 8883595596,
+          "Password": "PassWord",
+          "ConfirmPassword": "PassWord"
+        }
+      ]
+    }
+  }

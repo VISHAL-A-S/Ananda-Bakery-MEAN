@@ -1,0 +1,52 @@
+
+.container{
+  position: relative;
+  text-transform: uppercase;
+}
+
+
+.container .card{
+  position: fixed;
+  width: 320px;
+  height: 400px;
+  background: #111;
+  border-radius: 60px;
+  padding: 20px;
+ align-items: center;
+}
+.category{
+    text-align: center;
+    
+}
+.selection{
+padding: 3px 2px;
+  background: #fff;
+  border-radius: 4px;
+  margin-top: 5px;
+  font-weight: 600;
+  color: #111;
+  opacity: 1;
+
+}
+
+
+
+.foodtitle{
+    color: #111; font-size:25px;font-weight:900;text-align:center
+}
+.dropbtn {
+  padding: 8px;
+  font-size: 12px;
+  border: 1px solid #111816;
+  border-radius:4px;
+}
+
+.submit-btn{
+  width: 80%;
+  background:linear-gradient(45deg, #111816, #0a5f68);
+  margin-top: 2px;
+  padding: 10px;
+  font-size: 15px;
+  color:#fff;
+  border-radius: 10px;
+}

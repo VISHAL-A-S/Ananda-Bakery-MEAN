@@ -1,0 +1,18 @@
+{
+    "Login": {
+      "User": [
+        {
+          "Email": "vishal872002@gmail.com",
+          "Password": "Password123"
+        },
+        {
+          "Email": "vishal123@gmail.com",
+          "Password": "Password012"
+        },
+        {
+          "Email": "vishal12345@gmail.com",
+          "Password": "PassWord"
+        }
+      ]
+    }
+  }

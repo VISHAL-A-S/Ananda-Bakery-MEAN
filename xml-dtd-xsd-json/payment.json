@@ -1,0 +1,22 @@
+{
+    "Payment": {
+      "User": [
+        {
+          "CardNumber": 1234567887654321,
+          "CardHolderName": "vishal A S",
+          "ExpirationMonth": 10,
+          "ExpirationYear": 2027,
+          "CVV": 342,
+          "Amount": 1878
+        },
+        {
+          "CardNumber": 1234432156788765,
+          "CardHolderName": "VISHAL",
+          "ExpirationMonth": 3,
+          "ExpirationYear": 2030,
+          "CVV": 123,
+          "Amount": 2048
+        }
+      ]
+    }
+  }

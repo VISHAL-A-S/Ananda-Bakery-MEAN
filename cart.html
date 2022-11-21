@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Bakery</title>
+    <script src="js/app.js" defer></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cabin&family=Herr+Von+Muellerhoff&family=Poiret+One&family=Source+Sans+Pro:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                    <i class="fas fa-times"></i>
+                </div>
+                <a href="index.html" class="logo">
+                    <img src="images/logo.jpg" style="width: 35px; height: 35px;border-radius: 50px;"/>
+                ANANDA BAKERY</a>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="snack.html" class="nav-link">Snacks</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="cart.html" class="nav-link active">Cart</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html#contact" class="nav-link">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="FAQ.html" class="nav-link">FAQs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="feedback.html" class="nav-link">Feedback</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="login.html" class="nav-link">Login/Signup</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+
+    <section class="hero small-size-hero" id="hero">
+    </section>
+
+<section class="cart-section" ng-app="mainApp" ng-controller="cartFormController">
+    <style>
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+        /* CSS */
+.button {
+  appearance: button;
+  backface-visibility: hidden;
+  background-color: #E0B064;
+  border-radius: 6px;
+  border-width: 0;
+  
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+ 
+  font-size: 100%;
+  height: 44px;
+  line-height: 1.15;
+  margin: 12px 0 0;
+  overflow: hidden;
+  padding: 0 25px;
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
+
+
+        </style>
+        <table style="font-size: 20px;" ng-controller="cartController" ng-init="total = 0">
+            <tr>
+              <th>Item</th>
+              <th>Price(for 1 item)</th>
+              <th>Quantity</th>
+              <th>Amount</th>
+            </tr>
+            
+            <tr ng-repeat="snack in snacks">
+                
+                <td>{{snack.snackName}} 1 {{snack.measurement}}</td>
+                <td>{{snack.price}}</td>
+                <td>{{snack.count}}</td>
+                <td ng-init="$parent.total = $parent.total + (snack.price * snack.count)">{{snack.price*snack.count}}</td>
+                
+                </tr>
+            <tr>
+                <td colspan="3">GST(5%)</td>
+                <td>{{total*5/100}}</td>
+            </tr>
+            <tr>
+                <td colspan="3" style="text-align:center;"><b>Total Price</b></td>
+                <td><b>{{total+(total*5/100)}}</b></td>
+            </tr>
+            
+          </table>
+    
+<button onclick="window.location.href='payment.html'" class="button" role="button" style="font-size: 20px;font-weight:bold;color:#121212">Checkout</button>
+
+
+   
+</section>
+    <!-- FOOTER -->
+    <footer id="contact">
+        <div class="container">
+            <div class="back-to-top">
+                <a href="#hero"><i class="fas fa-chevron-up"></i></a>
+            </div>
+            <div class="footer__content">
+                <div class="footer__content-about animate-top">
+                    <h4>About Bakery</h4>
+                    <div class="asterisk"><i class="fas fa-asterisk"></i></div>
+                    <p>We're Ananda Bakery and we've been serving cakes, breads, puff pastries and sweets in srivilliputtur since 1950. We are dedicated to serving delicious cakes, breads, puffs, sweets and much more to our customers at a fair price.</p>
+                </div>
+                <div class="footer__content-divider animate-bottom">
+                    <div class="social-media">
+                       <div style="text-align:left;position: absolute; ">
+                        <h4 ><i class="fa fa-phone-alt" style="color:#e1b164"></i> Contact</h4>
+                        <ul >
+                            <li>
+                                <a href="tel:+91-98944-84909" class="contact" style="color:white;">
+                                    <p> +91 9894484909</p>
+                                </a>
+                            </li>
+                            
+                            
+                        </ul>
+                        </div>
+                       <div style="text-align:right">
+                        <h4 ><i class="fa fa-map-marker-alt" style="color:#e1b164"></i> Address</h4>
+                        <ul >
+                            <li>
+                                <a href="https://www.google.com/maps/dir//Ananda+Bakery/data=!4m8!4m7!1m0!1m5!1m1!1s0x3b06dcc7e9397c0f:0x7fe83740c8a5f675!2m2!1d77.6296229!2d9.5136487" class="contact" style="color:white;">
+                                    <p>4 C-D Rajaji Road<br>
+                                        Srivilliputhur 626125<br>
+                                        Tamil Nadu<br>
+                                        India</p>
+                                </a>
+                            </li>
+                            
+                            
+                        </ul>
+                        </div>
+                        
+                       
+                        
+                        
+                        
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        var mainApp = angular.module("mainApp", []);
+           
+           mainApp.controller('cartFormController', function($scope) {
+            
+  });
+  mainApp.controller('cartController', function($scope, $http) {
+        $http({
+                method: 'GET',
+                url: "http://localhost:3000/cartForm"
+                }).then(function success(response) {
+                    $scope.snacks=response.data;
+                    }, function error(response) {
+                    }
+                );
+        });
+  
+      </script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

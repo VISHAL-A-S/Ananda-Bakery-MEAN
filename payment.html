@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <link rel="stylesheet" href="stylepay.css">
+
+</head>
+<body>
+
+<div class="container" ng-app = "mainApp" ng-controller = "paymentController">
+
+    <div class="card-container">
+
+        <div class="front">
+            <div class="image">
+                <img src="images/chip.png" alt="">
+                <span class="card-box">CARD</span>
+            </div>
+            <div class="card-number-box">CARD NUMBER</div>
+            <div class="flexbox">
+                <div class="box">
+                    <span>card holder</span>
+                    <div class="card-holder-name">full name</div>
+                </div>
+                <div class="box">
+                    <span>expires</span>
+                    <div class="expiration">
+                        <span class="exp-month">mm</span>
+                        <span class="exp-year">yy</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <form name = "paymentForm" action="/paymentForm" method="post" novalidate>
+        <div class="inputBox">
+            <span>card number</span>
+            <input id="cardNumber" type="integer" maxlength="12" name = "cardNumber"  ng-model = "cardNumber" ng-pattern="reCardNumber" class="card-number-input" required/>
+            <span style = "color:red" ng-show = "paymentForm.cardNumber.$dirty && paymentForm.cardNumber.$invalid">
+                <span style = "color:red;font-size: small;" ng-show = "paymentForm.cardNumber.$error.required">Card Number must be required.</span>
+                <span style = "color:red;font-size: small;" ng-show="paymentForm.cardNumber.$error.pattern">Card Number should be 12 numbers.</span>
+             </span>
+        </div>
+        <div class="inputBox">
+            <span>card holder name</span>
+            <input id="cardHolderName" type="text" maxlength="30" name = "cardHolderName" ng-model = "cardHolderName" required  class="card-holder-input">
+            <span style = "color:red;font-size: small;" ng-show = "paymentForm.cardHolderName.$dirty && paymentForm.cardHolderName.$invalid">
+                <span style = "color:red;font-size: small;" ng-show = "paymentForm.cardHolderName.$error.required">CardHolder Name must be required.</span>
+             </span>
+        </div>
+        <div class="flexbox">
+            <div class="inputBox">
+                <span>expiration Month(mm)</span>
+                <input id="expirationMonth" class="month-input" name = "expirationMonth" type = "integer" ng-model = "expirationMonth" ng-pattern="reexpirationMonth" required/>
+                <span style = "color:red" ng-show = "paymentForm.expirationMonth.$dirty && paymentForm.expirationMonth.$invalid">
+                    <span style = "color:red;font-size: small;"  ng-show = "paymentForm.expirationMonth.$error.required">Expiration month must be required.</span>
+                    <span style = "color:red;font-size: small;"  ng-show="paymentForm.expirationMonth.$error.pattern">Expiration month must be in range[1-12]</span>
+                 </span>
+            </div>
+            <div class="inputBox">
+                <span>expiration Year(yyyy)</span>
+                <input id="expirationYear" class="year-input" name = "expirationYear" type = "integer" ng-model = "expirationYear" ng-pattern="reexpirationYear" required/>
+                <span style = "color:red" ng-show = "paymentForm.expirationYear.$dirty && paymentForm.expirationYear.$invalid">
+                    <span style = "color:red;font-size: small;"  ng-show = "paymentForm.expirationYear.$error.required">Expiration year must be required.</span>
+                    <span style = "color:red;font-size: small;"  ng-show="paymentForm.expirationYear.$error.pattern">Expiration year must be 4 digits</span>
+                 </span>
+            </div>
+            <div class="inputBox">
+                <span>cvv</span><br/>
+                <input id="cvv" class="year-input" name = "cvv" type = "integer" ng-model = "cvv" ng-pattern="recvv" required/>
+                <span style = "color:red" ng-show = "paymentForm.cvv.$dirty && paymentForm.cvv.$invalid">
+                    <span style = "color:red;font-size: small;"  ng-show = "paymentForm.cvv.$error.required">CVV must be required.</span>
+                    <span style = "color:red;font-size: small;"  ng-show="paymentForm.cvv.$error.pattern">CVV must be 3 digits</span>
+                 </span>
+            </div>
+        </div>
+        <input ng-disabled = "paymentForm.cardNumber.$dirty &&
+        paymentForm.cardNumber.$invalid || paymentForm.cardHolderName.$dirty &&
+        paymentForm.cardHolderName.$invalid || paymentForm.expirationMonth.$dirty &&
+        paymentForm.expirationMonth.$invalid || paymentForm.expirationYear.$dirty &&
+        paymentForm.expirationYear.$invalid || paymentForm.cvv.$dirty &&
+        paymentForm.cvv.$invalid" ng-click="submit()" type="submit" value="PAY" class="submit-btn">
+    </form>
+
+</div>    
+<script>
+
+var mainApp = angular.module("mainApp", []);
+         
+         mainApp.controller('paymentController', function($scope) {
+            $scope.reCardNumber = /^[0-9]{12}$/;
+            $scope.reexpirationMonth= /^(0?[1-9]|1[012])$/;
+            $scope.reexpirationYear= /^[2][0][2-9]{1}[0-9]{1}$/;
+            $scope.recvv= /^[0-9]{3}$/;          
+         });
+</script>
+
+
+
+
+
+
+
+</body>
+</html>
